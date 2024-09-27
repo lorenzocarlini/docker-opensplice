@@ -8,8 +8,11 @@ ENV PYTHON_MIN_VER=17
 ARG BRANCH=master
 
 COPY ./source/opensplice-$BRANCH.zip /tmp
+# git clone https://github.com/PrismTech/opensplice.git -b $BRANCH $OSPL_SOURCE
 COPY ./source/gsoap_$GSOAP_MAJ_VER.$GSOAP_MIN_VER.zip /tmp/
+# wget https://downloads.sourceforge.net/project/gsoap2/gsoap_2.8.135.zip -O /tmp/gsoap_$GSOAP_MAJ_VER.$GSOAP_MIN_VER.zip \
 COPY ./source/Python-$PYTHON_MAJ_VER.$PYTHON_MIN_VER.tgz /tmp/
+# wget https://www.python.org/ftp/python/3.7.17/Python-3.7.17.tgz
 
 # Get required packages
 RUN apt-get update \
